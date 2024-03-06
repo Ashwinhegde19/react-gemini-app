@@ -1,4 +1,4 @@
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 3001
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
@@ -19,14 +19,13 @@ app.post( "/gemini", async (req, res) => {
     const chat = model.startChat({
         history: req.body.history
 })
-    const msg = req.body.message
-
-    const result = await chat.sendMessage(msg);
-    const response =  result.response;
-    const text = response.text();
-    res.send(text)
+    const msg = req.body.message;
+        const result = await chat.sendMessage(msg);
+        const response =  result.response.text();
+        res.send(response);
 })
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
+  
 })

@@ -5,7 +5,7 @@ function App() {
   const [error, setError] = useState("")
   const [chatHistory, setChatHistory] = useState([]);
   const surpriseOption = [
-    'who won latest  Nobel Prize?',
+    'who is the PM of India?',
     'what is the capital of India?',
     'which planet has atmosphere similar to earth?'
   ]
@@ -29,9 +29,9 @@ function App() {
         }),
         headers: { "Content-Type": "application/json" },
       }
-      const response = await fetch("http://localhost:8000/gemini", options)
-      const data = await response.json();
-      console.log(data);
+        const response = await fetch("http://localhost:3001/gemini", options)
+        const data = await response.text();
+        console.log(data);  
       setChatHistory(oldChatHistory => [...oldChatHistory, {
         role: "user",
         parts: value
@@ -40,7 +40,7 @@ function App() {
         role: "model",
         parts: data
       }
-      ])
+      ])  
       setValue("")
 
     } catch (error) {
