@@ -14,14 +14,13 @@ A simple chat application built using React for the frontend and Express for the
 
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/Ashwinhegde19/react-gemini-app
+```
 
 Navigate to the project directory:
 
 cd react-gemini-app
 
-
 Install dependencies:
-```
+
 npm install cors dotenv express nodemon react react-dom
-```
